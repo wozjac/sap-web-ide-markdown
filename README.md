@@ -6,6 +6,7 @@ This extension is available for SAP Web IDE, cloud edition.
 
 ## Usage
 When a Markdown file is opened (.md file extension), the preview icon is showed in the right pane.
+
 ![preview icon](https://www.mediafire.com/convkey/ef92/3c9vxtc19z74b8f6g.jpg)
 
 Clicking on it will open a new tab/window with a HTML preview (Github flavor is used for styling).
