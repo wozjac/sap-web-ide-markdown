@@ -1,0 +1,11 @@
+{
+	"name": "sap-web-ide-markdown",
+	"title": "sap-web-ide-markdown",
+	"version": "1.0.0",
+	"description": "Markdown support in SAP Web IDE",
+	"homepage": "",
+	"icon": "",
+	"bundledPlugins": {
+		"sap-web-ide-markdown-preview": "file:sap-web-ide-markdown-preview"
+	}
+}
