@@ -4,6 +4,15 @@ This extension adds a preview option for Markdown (.md) files.
 ## Installation
 This extension is available for SAP Web IDE, cloud edition.
 
+1. Add a new destination in the Cloud Platform Cockpit.
+URL: https://jwsapwebidemarkdown-p791767trial.dispatcher.hanatrial.ondemand.com
+![destination](https://www.mediafire.com/convkey/1d5d/4x2to18b0343lo46g.jpg)
+Name and description - choose as you like
+2. Go to Extensions in SAP Web IDE (refresh if already opened) - the extension should be available 
+(wait some minutes if not and refresh). 
+![extension](https://www.mediafire.com/convkey/76de/891ulbc2r0y8yjf6g.jpg)
+3. switch to "On". 
+
 ## Usage
 When a Markdown file is opened (.md file extension), the preview icon is showed in the right pane.
 
