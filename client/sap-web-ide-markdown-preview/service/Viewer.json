@@ -1,9 +1,9 @@
 {
-	"name": "sap-web-ide-markdown-preview.service.Viewer",
-	"description": "Markdown viewer interface",
-	"methods": {
-		"showPreviewPage": {
-			"description": "Opens a previe page with Markdown content"
-		}
-	}
+    "name": "sap-web-ide-markdown-preview.service.Viewer",
+    "description": "Markdown viewer interface",
+    "methods": {
+        "showPreviewPage": {
+            "description": "Opens a previe page with Markdown content"
+        }
+    }
 }

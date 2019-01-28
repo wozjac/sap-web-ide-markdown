@@ -1,40 +1,40 @@
 {
-	"name": "sap-web-ide-markdown-preview",
-	"description": "Preview of Markdown (.md) files in SAP Web IDE",
-	"i18n": "sap-web-ide-markdown-preview/i18n/i18n",
-	"requires": {
-		"services": [
-		    "content",
-			"log",
-			"command",
-			"commandGroup"
-		]
-	},
-	"provides": {
-		"services": {
-			"viewer": {
-				"implements": "sap-web-ide-markdown-preview.service.Viewer",
-				"module": "sap-web-ide-markdown-preview/service/Viewer"
-			}
-		},
+    "name": "sap-web-ide-markdown-preview",
+    "description": "Preview of Markdown (.md) files in SAP Web IDE",
+    "i18n": "sap-web-ide-markdown-preview/i18n/i18n",
+    "requires": {
+        "services": [
+            "content",
+            "log",
+            "command",
+            "commandGroup"
+        ]
+    },
+    "provides": {
+        "services": {
+            "viewer": {
+                "implements": "sap-web-ide-markdown-preview.service.Viewer",
+                "module": "sap-web-ide-markdown-preview/service/Viewer"
+            }
+        },
 
-		"interfaces": {
-			"sap-web-ide-markdown-preview.service.Viewer": "sap-web-ide-markdown-preview/service/Viewer"
-		}
-	},
-	"configures": {
-		"services": {
-			"command:commands": [{
-				"id": "sap-web-ide-markdown-preview.showPreviewPage",
-				"label": "{i18n>commandShowPreviewPage}",
-				"icon": "sap-icon://vds-file",
-				"service": "sap-web-ide-markdown-preview/command/ShowPreviewPage"
-			}],
-			"commandGroup:items": [{
-				"parent": "applicationRightSidebar",
-				"command": "sap-web-ide-markdown-preview.showPreviewPage",
-				"prio": 101
-			}]
-		}
-	}
+        "interfaces": {
+            "sap-web-ide-markdown-preview.service.Viewer": "sap-web-ide-markdown-preview/service/Viewer"
+        }
+    },
+    "configures": {
+        "services": {
+            "command:commands": [{
+                "id": "sap-web-ide-markdown-preview.showPreviewPage",
+                "label": "{i18n>commandShowPreviewPage}",
+                "icon": "sap-icon://vds-file",
+                "service": "sap-web-ide-markdown-preview/command/ShowPreviewPage"
+            }],
+            "commandGroup:items": [{
+                "parent": "applicationRightSidebar",
+                "command": "sap-web-ide-markdown-preview.showPreviewPage",
+                "prio": 101
+            }]
+        }
+    }
 }

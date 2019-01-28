@@ -1,67 +1,68 @@
 define([
-	"sap-web-ide-markdown-preview/js/showdown.min"
-], function (showdown) {
-	return {
-		showPreviewPage: function () {
-			var that = this;
-			var filename;
+    "sap-web-ide-markdown-preview/js/showdown.min"
+], function(showdown) {
+    return {
+        showPreviewPage: function() {
+            var that = this;
+            var filename;
 
-			this.context.service.content.getCurrentDocument()
-				.then(function (document) {
-					filename = document.getName();
-					var fileExtension = filename.split(".").pop();
+            this.context.service.content.getCurrentDocument()
+                .then(function(document) {
+                    filename = document.getName();
+                    var fileExtension = filename.split(".").pop();
 
-					if (fileExtension === "md") {
-						return document.getContent();
-					} else {
-						throw new Error("Not a .md file");
-					}
-				})
-				.then(function (content) {
-					var htmlTemplate = that._getViewerTemplate();
-					var markdownHtml = that._prepareMarkdownHtml(content);
-					var finalHtml = htmlTemplate.replace("MARKDOWN_CONTENT", markdownHtml);
-					that._openPreviewWindow(finalHtml, filename);
-					that.context.service.log.info("Markdown Preview", "File preview opened").done();
-				})
-				.catch(function (error) {
-					that.context.service.log.info("Markdown Preview", "File preview failed: " + error).done();
-				})
-		},
+                    if (fileExtension === "md") {
+                        return document.getContent();
+                    } else {
+                        throw new Error("Not a .md file");
+                    }
+                })
+                .then(function(content) {
+                    var htmlTemplate = that._getViewerTemplate();
+                    var markdownHtml = that._prepareMarkdownHtml(content);
+                    var finalHtml = htmlTemplate.replace("MARKDOWN_CONTENT", markdownHtml);
+                    that._openPreviewWindow(finalHtml, filename);
+                    that.context.service.log.info("Markdown Preview", "File preview opened").done();
+                })
+                .catch(function(error) {
+                    that.context.service.log.info("Markdown Preview", "File preview failed: " + error).done();
+                })
+        },
 
-		_prepareMarkdownHtml: function (markdownContent) {
-			var converter = new showdown.Converter();
-			converter.setFlavor("github");
-			var markdownHtml = converter.makeHtml(markdownContent);
+        _prepareMarkdownHtml: function(markdownContent) {
+            var converter = new showdown.Converter();
+            converter.setFlavor("github");
+            var markdownHtml = converter.makeHtml(markdownContent);
 
-			return markdownHtml;
-		},
+            return markdownHtml;
+        },
 
-		_getViewerTemplate: function () {
-			//no text.js plugin for require present
-			//don't know how to get the plugin path in the right way, but works...
-			var basePath = this.context.i18n.bundles.i18n.replace("i18n/i18n.properties", "");
-			var htmlTemplate;
+        _getViewerTemplate: function() {
+            //no text.js plugin for require present
+            //don't know how to get the plugin path in the right way, but works...
+            var basePath = this.context.i18n.bundles.i18n.replace("i18n/i18n.properties", "");
+            var htmlTemplate;
 
-			$.ajax({
-				url: basePath + "htmlTemplate/viewer.html",
-				async: false,
-				success: function (data) {
-					htmlTemplate = data;
-				},
-				error: function (error) {
-					this.context.service.log.info("Markdown Preview", "File preview failed: " + error).done();
-				}
-			});
+            $.ajax({
+                url: basePath + "htmlTemplate/viewer.html",
+                async: false,
+                success: function(data) {
+                    htmlTemplate = data;
+                },
+                error: function(error) {
+                    this.context.service.log.info("Markdown Preview", "File preview failed: " +
+                        error).done();
+                }
+            });
 
-			return htmlTemplate;
-		},
+            return htmlTemplate;
+        },
 
-		_openPreviewWindow: function (html, filename) {
-			var previewWindow = window.open("");
-			previewWindow.document.write(html);
-			previewWindow.document.title = this.context.i18n.getText("previewWindowTitle", [filename]);
-			previewWindow.document.close();
-		}
-	}
+        _openPreviewWindow: function(html, filename) {
+            var previewWindow = window.open("");
+            previewWindow.document.write(html);
+            previewWindow.document.title = this.context.i18n.getText("previewWindowTitle", [filename]);
+            previewWindow.document.close();
+        }
+    }
 });
