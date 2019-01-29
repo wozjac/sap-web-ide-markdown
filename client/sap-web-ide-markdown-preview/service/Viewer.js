@@ -2,9 +2,11 @@ define([
     "sap-web-ide-markdown-preview/js/showdown.min"
 ], function(showdown) {
     return {
+    	_cachedViewerTemplate: null,
+    	
         showPreviewPage: function() {
-            var that = this;
-            var filename;
+            var that = this,
+            	filename;
 
             this.context.service.content.getCurrentDocument()
                 .then(function(document) {
@@ -38,8 +40,14 @@ define([
         },
 
         _getViewerTemplate: function() {
-            //no text.js plugin for require present
-            //don't know how to get the plugin path in the right way, but works...
+        	var that = this;
+        	
+        	if(this._cachedViewerTemplate) {
+        		return this._cachedViewerTemplate;
+        	}
+        	
+            //workaround - no text.js plugin for require present in the IDE API?
+            //don't know how to get the plugin path in the "right" way, but works...
             var basePath = this.context.i18n.bundles.i18n.replace("i18n/i18n.properties", "");
             var htmlTemplate;
 
@@ -47,7 +55,7 @@ define([
                 url: basePath + "htmlTemplate/viewer.html",
                 async: false,
                 success: function(data) {
-                    htmlTemplate = data;
+                    that._cachedViewerTemplate = data;
                 },
                 error: function(error) {
                     this.context.service.log.info("Markdown Preview", "File preview failed: " +
