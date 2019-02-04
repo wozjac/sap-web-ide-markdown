@@ -20,9 +20,28 @@ When a Markdown file is opened (.md file extension), the preview icon is showed 
 
 ![preview icon](https://www.mediafire.com/convkey/ef92/3c9vxtc19z74b8f6g.jpg)
 
-Clicking on it will open a new tab/window with a HTML preview (Github flavor is used for styling).
+Clicking on it will open a new tab/window with a HTML preview (Github CSS is used for styling).
 
 ![md preview](https://www.mediafire.com/convkey/cae3/lm4qlrkctwwy23v6g.jpg)
+
+## Configuration
+By default, Github flavor (preset) is used for Showdown. For passing options (https://github.com/showdownjs/showdown#options) create 
+.mdpreview file in the root folder of your project and:  
+- provide individual options which will be passed to Showdown, for example:  
+```
+{
+	"showdownConfig": {
+		"openLinksInNewWindow": true,
+		"simplifiedAutoLink": true
+	}
+}
+```
+or set other desired flavor (https://github.com/showdownjs/showdown#flavors):  
+```
+{
+	"flavor": "original"
+}
+```
 
 ## Credits
 - Showdown as a converter: [https://github.com/showdownjs/showdown](https://github.com/showdownjs/showdown)
