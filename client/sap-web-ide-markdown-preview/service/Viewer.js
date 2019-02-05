@@ -1,7 +1,8 @@
 define([
     "sap-web-ide-markdown-preview/js/lib/showdown.min",
+    "sap-web-ide-markdown-preview/js/lib/purify.min",
     "sap-web-ide-markdown-preview/js/CurrentProject"
-], function(showdown, CurrentProject) {
+], function(showdown, purify, CurrentProject) {
     return {
         _cachedViewerTemplate: null,
 
@@ -48,6 +49,7 @@ define([
                 .then(function(configObject) {
                     var htmlTemplate = that._getViewerTemplate();
                     var markdownHtml = that._prepareMarkdownHtml(fileContent, configObject);
+                    //markdownHtml = purify.sanitize(markdownHtml);
                     var finalHtml = htmlTemplate.replace("MARKDOWN_CONTENT", markdownHtml);
                     that._openPreviewWindow(finalHtml, filename);
                     that.context.service.log.info("Markdown Preview", "File preview opened").done();
