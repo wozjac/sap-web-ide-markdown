@@ -1,0 +1,16 @@
+{
+    "name": "sap-web-ide-markdown",
+    "version": "1.0.17",
+    "description": "Markdown files (.md) preview plugin for SAP Web IDE",
+    "scripts": {
+        "postinstall": "cd client && npm install @sap/eslint-plugin-webide-feature --no-save && npm install eslint --no-save",
+        "test": "node client/node_modules/eslint/bin/eslint.js client/sap-web-ide-markdown-preview/**/*.js --rule \"@sap/webide-feature/package-json-exists: 1\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wozjac/sap-web-ide-markdown.git"
+    },
+    "author": "Jacek Woźniczak <wozjac@zoho.com> (https://www.linkedin.com/in/jacek-wznk)",
+    "license": "MIT",
+    "homepage": "https://github.com/wozjac/sap-web-ide-markdown#readme"
+}

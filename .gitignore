@@ -13,3 +13,4 @@ AppVariant_index.html
 APIExternalProducer.js
 .*/APIExternalProducer.js
 /client/TEST.md
+node_modules*
