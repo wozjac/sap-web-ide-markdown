@@ -6,23 +6,23 @@ This extension is available for SAP Web IDE, cloud edition.
 
 1. Add a new destination in the Cloud Platform Cockpit.  
 URL: https://jwsapwebidemarkdown-p791767trial.dispatcher.hanatrial.ondemand.com
-![destination](https://www.mediafire.com/convkey/1d5d/4x2to18b0343lo46g.jpg)  
+![destination](http://public_repo.vipserv.org/images/markdown/destination_settings.png)  
 Name and description - choose as you like.
 
 2. Go to Extensions in SAP Web IDE (refresh if already opened) - the extension should be available 
 (wait some minutes if not and refresh). 
 
-![extension](https://www.mediafire.com/convkey/76de/891ulbc2r0y8yjf6g.jpg)
+![extension](http://public_repo.vipserv.org/images/markdown/web-ide-extensions.png)  
 3. switch to "On". 
 
 ## Usage
 When a Markdown file is opened (.md file extension), the preview icon is showed in the right pane.
 
-![preview icon](https://www.mediafire.com/convkey/ef92/3c9vxtc19z74b8f6g.jpg)
+![preview icon](http://public_repo.vipserv.org/images/markdown/preview_icon.png)
 
 Clicking on it will open a new tab/window with a HTML preview (Github CSS is used for styling).
 
-![md preview](https://www.mediafire.com/convkey/cae3/lm4qlrkctwwy23v6g.jpg)
+![md preview](http://public_repo.vipserv.org/images/markdown/preview.png)
 
 ## Configuration
 By default, Github flavor (preset) is used for Showdown. For passing options (https://github.com/showdownjs/showdown#options) create 
