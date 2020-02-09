@@ -20,7 +20,7 @@ define([
                     if (fileExtension === "md") {
                         return document.getContent();
                     } else {
-                        throw new Error("Not a .md file");
+                        throw new Error(that.context.i18n.getText("i18n", "notMdFile"));  
                     }
                 })
                 .then(function(content) {
@@ -38,7 +38,7 @@ define([
                             return configObject;
                         } catch (error) {
                             that.context.service.log.info("Markdown Preview",
-                                ".mdpreview error, using default values: " + error).done();
+                                that.context.i18n.getText("i18n", "mdPreviewError") + ": " + error).done();
                             //use default values
                             return defaultConfig;
                         }
@@ -52,10 +52,10 @@ define([
                     //markdownHtml = purify.sanitize(markdownHtml);
                     var finalHtml = htmlTemplate.replace("MARKDOWN_CONTENT", markdownHtml);
                     that._openPreviewWindow(finalHtml, filename);
-                    that.context.service.log.info("Markdown Preview", "File preview opened").done();
+                    that.context.service.log.info("Markdown Preview", that.context.i18n.getText("i18n", "fileOpened")).done();
                 })
                 .catch(function(error) {
-                    that.context.service.log.info("Markdown Preview", "File preview failed: " + error).done();
+                    that.context.service.log.info("Markdown Preview", that.context.i18n.getText("i18n", "previewFailed") + ": " + error).done();
                 })
         },
 
@@ -88,8 +88,7 @@ define([
                     },
                     error: function(error) {
                         this.context.service.log.info("Markdown Preview",
-                            "File preview failed: " +
-                            error).done();
+                            that.context.i18n.getText("i18n", "previewFailed") + ": " + error).done();
                     }
                 });
             }

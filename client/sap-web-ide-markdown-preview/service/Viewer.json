@@ -3,7 +3,7 @@
     "description": "Markdown viewer interface",
     "methods": {
         "showPreviewPage": {
-            "description": "Opens a previe page with Markdown content"
+            "description": "Opens a preview page with Markdown content"
         }
     }
 }

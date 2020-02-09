@@ -45,6 +45,7 @@ or set other desired flavor (https://github.com/showdownjs/showdown#flavors):
 
 ## Credits
 - Showdown as a converter: [https://github.com/showdownjs/showdown](https://github.com/showdownjs/showdown)
+- DOMPurify (https://github.com/cure53/DOMPurify) for sanitazing HTML output
 
 ## License
 This plugin is licensed under the [MIT license](http://opensource.org/licenses/MIT).

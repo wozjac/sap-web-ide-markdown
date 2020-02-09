@@ -1,3 +1,7 @@
+# 1.0.18
+- more i18n texts
+- README.md update
+
 # 1.0.17
 - add DOMPurify for sanitazing HTML output
 
